@@ -1,0 +1,67 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.container {
+    background-color: rgb(224, 245, 206);
+    display: flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap: 100px; /* Espacio entre la imagen y el formulario */
+}
+
+.form {
+    text-align:left;
+    width: 250px;
+    padding: -2rem;
+    background-color: rgb(224, 245, 206);
+}
+
+.ima3 {
+    width: 180px;
+    height: auto;
+    position: absolute;
+    right: 2%;
+    top: 0
+}
+
+.ima1 {
+    width: 100%;  /* Tamaño de la imagen */
+    max-width: 750px;
+    height: auto;
+}
+
+/* Recuadros */
+.form input {
+    display:block;
+    width: 100%;
+    padding: .5rem;
+    margin-bottom: 10px;
+    outline: none;
+    border: 1.5px solid black;
+}
+
+/* Boton registro*/
+.form input[type="submit"] {
+    width: 100%;
+    padding: .7rem;
+    cursor:pointer;
+    background-color: #66e36b;
+    border: none;
+    color: rgb(0, 0, 0);
+}
+
+/* Ya tienes cuenta? */
+.form a {
+    display:block;
+    margin:auto;
+    margin-bottom: .8rem;
+    width: 250px;
+    font-size: -1rem;
+    color: rgb(175, 108, 72);
+    cursor: pointer;
+    text-decoration: underline;
+}
