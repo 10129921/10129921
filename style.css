@@ -1,12 +1,13 @@
-* {
+
+.registro {
     padding: 0;
     margin: 0;
     box-sizing:border-box;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
-.container {
-    background-color: rgb(224, 245, 206);
+.form-group {
+    background-color: rgb(158, 240, 86);
     display: flex;
     align-items:center;
     justify-content:flex-start;
@@ -20,7 +21,7 @@
     background-color: rgb(224, 245, 206);
 }
 
-.ima3 {
+.img {
     width: 180px;
     height: auto;
     position: absolute;
@@ -28,11 +29,6 @@
     top: 0
 }
 
-.ima1 {
-    width: 100%;  /* Tamaño de la imagen */
-    max-width: 750px;
-    height: auto;
-}
 
 /* Recuadros */
 .form input {

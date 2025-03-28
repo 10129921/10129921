@@ -8,16 +8,8 @@
 <body>
 <?php
 
-$host="localhost";
-$user="root";
-$pass="1526";
-$dbname="base2";
-
-$conn = new mysqli($host,$user,$pass,$dbname);
-
-if($conn -> connect_error) {
-    die("Error en la conexion: " . $conn ->connect_error);
-}
+$conexion = mysqli_connect("localhost", "root", "1526", "base2") 
+or die ("Problemas al conectar"); 
 
 ?>
 </body>
