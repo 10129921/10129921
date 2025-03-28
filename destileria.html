@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="img">
+        <div class="images">
+            <img src="ima1.jpeg" class="ima1" alt="imagen 1">
+            <img src="ima3.png" class="ima3" alt="imagen 2">
+        </div>
+    </div>
+
+    <!-- Contenedor general de los formularios -->
+    <div id="contenedor-formularios">
+
+    <!-- Creamos el formulario de registro-->
+        <div id="registro" class="formulario">
+            <h2>Registrar</h2>
+            <form action="registrar.php" method="post" onsubmit="return validarContraseñas()">
+                
+                <div class="form-group">
+                    <label for="nombre">Nombre completo:</label>
+                    <input type="text" id="nombre" name="Nombre_Completo" placeholder="Nombre completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="identificacion">Identificación:</label>
+                    <input type="text" id="identificacion" name="Identificacion" placeholder="Identificación" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+                    <input type="date" id="fecha_nacimiento" name="Fecha_nacimiento" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="Email" placeholder="Correo electrónico" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contraseña">Contraseña:</label>
+                    <input type="password" id="contraseña" name="Contraseña1" placeholder="Contraseña" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contraseña2">Confirmar contraseña:</label>
+                    <input type="password" id="contraseña2" name="contraseña2" placeholder="Confirmar contraseña" required>
+                </div>
+
+                <button type="submit">Registrar</button>
+            </form>
+            <a href="#" onclick="mostrarlogin()">Ya tengo cuenta</a> 
+        </div>
+    
+    <!-- Creamos ahora el formulario del inicio de sesión-->
+    <div id="login" class="formulario">
+        <h2>Iniciar Sesión</h2>
+        <form action="login.php" method="post">
+            
+            <div class="form-group">
+                <label for="identificacion_login">Identificación:</label>
+                <input type="text" id="identificacion_login" name="Identificacion" placeholder="Identificación" required>
+            </div>
+
+            <div class="form-group">
+                <label for="contraseña_login">Contraseña:</label>
+                <input type="password" id="contraseña_login" name="Contraseña1" placeholder="Contraseña" required>
+            </div>
+
+            <button type="submit">Iniciar sesión</button>
+        </form>
+        <a href="#" onclick="mostrarregistro()">No tengo cuenta</a>
+    </div>
+
+</div>
+
+<script>
+// Ocultar el formulario de registro al cargar la página
+window.onload = function() {
+    document.getElementById('registro').style.display = 'none';
+    document.getElementById('login').style.display = 'block';
+};
+
+// Función para mostrar el formulario de login y ocultar el de registro
+function mostrarlogin(){
+    document.getElementById('registro').style.display = 'none';
+    document.getElementById('login').style.display = 'block';
+}
+
+// Función que nos permite mostrar el formulario de registro y ocultar el de login
+function mostrarregistro(){
+    document.getElementById('login').style.display = 'none';
+    document.getElementById('registro').style.display = 'block';
+}
+
+// Validación mejorada de contraseñas
+function validarContraseñas(){
+    var pass1 = document.getElementById("contraseña").value.trim();
+    var pass2 = document.getElementById("contraseña2").value.trim();
+
+    if (pass1 === "" || pass2 === "") {
+        alert("Las contraseñas no pueden estar vacías.");
+        return false;
+    }
+    if (pass1.length < 6) {
+        alert("La contraseña debe tener al menos 6 caracteres.");
+        return false;
+    }
+    if (pass1 !== pass2) {
+        alert("Las contraseñas no coinciden.");
+        return false;
+    }
+    return true;
+}
+</script>
+
+</body>
+</html>
