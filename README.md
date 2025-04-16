@@ -1,7 +1,7 @@
 ## Hi there 👋
 
 <!--
-**10129921/10129921** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+**Andrey101299/Andrey101299** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
 Here are some ideas to get you started:
 
