@@ -1,124 +1,199 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulario con Estilos</title>
+        <style>
+            /* Estilos generales */
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #ceebc9; /* Verde claro de fondo */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                flex-direction: column;
+                gap: 20px;
+            }
 
-    <div id="img">
-        <div class="images">
-            <img src="ima1.jpeg" class="ima1" alt="imagen 1">
-            <img src="ima3.png" class="ima3" alt="imagen 2">
-        </div>
-    </div>
+            /* Contenedor principal para el login/registro */
+            #contenedor {
+                display: flex;
+                width: 100%; /* Asegura que ocupe todo el ancho */
+                height: 100vh; /* Altura completa de la ventana */
+                gap: 0;
+            }
 
-    <!-- Contenedor general de los formularios -->
-    <div id="contenedor-formularios">
+            /* Estilos de la imagen grande */
+            #imagenGrande {
+                width: 55%; /* La imagen ocupa el 60% de la pantalla */
+                height: 100vh; /* Ocupa toda la altura de la pantalla */
+                object-fit: cover; /* La imagen cubre el espacio sin deformarse */
+            }
 
-    <!-- Creamos el formulario de registro-->
-        <div id="registro" class="formulario">
-            <h2>Registrar</h2>
-            <form action="registrar.php" method="post" onsubmit="return validarContraseñas()">
-                
-                <div class="form-group">
-                    <label for="nombre">Nombre completo:</label>
-                    <input type="text" id="nombre" name="Nombre_Completo" placeholder="Nombre completo" required>
-                </div>
+            /* Contenedor del formulario */
+            .formulario-container {
+                width: 40%; /* El formulario ocupa el 40% de la pantalla */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh; /* Ocupa toda la altura de la pantalla */
+            }
 
-                <div class="form-group">
-                    <label for="identificacion">Identificación:</label>
-                    <input type="text" id="identificacion" name="Identificacion" placeholder="Identificación" required>
-                </div>
+            /* Estilos para el formulario */
+            .formulario {
+                padding: 50px;
+                background-color: #ffffff;
+                color: #333333;
+                width: 100%; /* Ancho completo dentro de su contenedor */
+                max-width: 400px; /* Ancho máximo del formulario */
+                box-sizing: border-box;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle más visibilidad */
+                border-radius: 10px; /* Bordes redondeados */
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
 
-                <div class="form-group">
-                    <label for="fecha_nacimiento">Fecha de nacimiento:</label>
-                    <input type="date" id="fecha_nacimiento" name="Fecha_nacimiento" required>
-                </div>
+            /* Estilo para los campos de entrada */
+            input[type="text"], input[type="password"], input[type="email"] {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 16px;
+            }
 
-                <div class="form-group">
-                    <label for="email">Correo electrónico:</label>
-                    <input type="email" id="email" name="Email" placeholder="Correo electrónico" required>
-                </div>
+            /* Estilo para el botón */
+            button {
+                background-color:rgb(101, 164, 132); /* Verde claro */
+                color: white;
+                padding: 15px 30px;
+                font-size: 16px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                width: 100%;
+                margin-top: 10px; /* Añadido margen entre los botones */
+            }
 
-                <div class="form-group">
-                    <label for="contraseña">Contraseña:</label>
-                    <input type="password" id="contraseña" name="Contraseña1" placeholder="Contraseña" required>
-                </div>
+            /* Hover para el botón */
+            button:hover {
+                background-color: #69dcae; /* Verde más oscuro al pasar el ratón */
+            }
 
-                <div class="form-group">
-                    <label for="contraseña2">Confirmar contraseña:</label>
-                    <input type="password" id="contraseña2" name="contraseña2" placeholder="Confirmar contraseña" required>
-                </div>
+            /* Estilo para el logo */
+            #logo {
+                display: block;
+                margin: 0 auto 20px;
+                max-width: 150px;
+            }
 
-                <button type="submit">Registrar</button>
-            </form>
-            <a href="#" onclick="mostrarlogin()">Ya tengo cuenta</a> 
-        </div>
+            /* Botones para alternar entre login y registro (moverlos al final) */
+            .tabs {
+                margin-top: 20px;
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .tabs button {
+                padding: 10px 20px;
+                background-color: rgb(101, 164, 132);
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+
+            .tabs button:hover {
+                background-color: #69dcae;
+            }
+        </style>
+    </head>
     
-    <!-- Creamos ahora el formulario del inicio de sesión-->
-    <div id="login" class="formulario">
-        <h2>Iniciar Sesión</h2>
-        <form action="login.php" method="post">
-            
-            <div class="form-group">
-                <label for="identificacion_login">Identificación:</label>
-                <input type="text" id="identificacion_login" name="Identificacion" placeholder="Identificación" required>
+    <body>
+        <!-- Contenedor principal -->
+        <div id="contenedor">
+            <!-- Imagen grande a la izquierda -->
+            <img id="imagenGrande" src="ima1.jpeg" alt="Imagen Grande">
+
+            <!-- Contenedor del formulario (a la derecha) -->
+            <div class="formulario-container">
+                <div>
+                    <!-- Formulario de Login -->
+                    <div id="login" class="formulario">
+                        <h2>Iniciar Sesión</h2>
+                        <img id="logo" src="ima3.png" alt="Logo">
+                        <form action="login.php" method="POST">
+                            <label for="email">Correo electrónico:</label>
+                            <input type="email" name="email" required><br><br>
+
+                            <label for="contrasena">Contraseña:</label>
+                            <input type="password" name="contrasena" required><br><br>
+
+                            <button type="submit">Ingresar</button>
+                        </form>
+                    </div>
+
+                    <!-- Formulario de Registro -->
+                    <div id="registro" class="formulario">
+                        <h2>Registro de Usuario</h2>
+                        <form action="registro.php" method="POST">
+                            <label for="nombres">Nombres:</label>
+                            <input type="text" name="nombres" required><br><br>
+                    
+                            <label for="apellidos">Apellidos:</label>
+                            <input type="text" name="apellidos" required><br><br>
+
+                            <label for="identificacion">Identificación:</label>
+                            <input type="text" name="identificacion" required><br><br>
+                    
+                            <label for="email">Correo electrónico:</label>
+                            <input type="email" name="email" required><br><br>
+                    
+                            <label for="contrasena">Contraseña:</label>
+                            <input type="password" name="contrasena" required><br><br>
+                    
+                            <label for="tipo_usuario">Tipo de Usuario:</label>
+                            <select name="tipo_usuario" required>
+                                <option value="cliente">Cliente</option>
+                                <option value="empleado">Empleado</option>
+                            </select><br><br>
+                    
+                            <button type="submit">Registrarse</button>
+                        </form>
+                    </div>
+
+                    <!-- Botones para alternar entre login y registro -->
+                    <div class="tabs">
+                        <button onclick="mostrarLogin()">Iniciar Sesión</button>
+                        <button onclick="mostrarRegistro()">Registrarse</button>
+                    </div>
+                </div>
             </div>
+        </div>
 
-            <div class="form-group">
-                <label for="contraseña_login">Contraseña:</label>
-                <input type="password" id="contraseña_login" name="Contraseña1" placeholder="Contraseña" required>
-            </div>
+        <script>
+            // Mostrar el formulario de login y ocultar el de registro
+            function mostrarLogin() {
+                document.getElementById('login').style.display = 'block';
+                document.getElementById('registro').style.display = 'none';
+            }
 
-            <button type="submit">Iniciar sesión</button>
-        </form>
-        <a href="#" onclick="mostrarregistro()">No tengo cuenta</a>
-    </div>
+            // Mostrar el formulario de registro y ocultar el de login
+            function mostrarRegistro() {
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('registro').style.display = 'block';
+            }
 
-</div>
-
-<script>
-// Ocultar el formulario de registro al cargar la página
-window.onload = function() {
-    document.getElementById('registro').style.display = 'none';
-    document.getElementById('login').style.display = 'block';
-};
-
-// Función para mostrar el formulario de login y ocultar el de registro
-function mostrarlogin(){
-    document.getElementById('registro').style.display = 'none';
-    document.getElementById('login').style.display = 'block';
-}
-
-// Función que nos permite mostrar el formulario de registro y ocultar el de login
-function mostrarregistro(){
-    document.getElementById('login').style.display = 'none';
-    document.getElementById('registro').style.display = 'block';
-}
-
-// Validación mejorada de contraseñas
-function validarContraseñas(){
-    var pass1 = document.getElementById("contraseña").value.trim();
-    var pass2 = document.getElementById("contraseña2").value.trim();
-
-    if (pass1 === "" || pass2 === "") {
-        alert("Las contraseñas no pueden estar vacías.");
-        return false;
-    }
-    if (pass1.length < 6) {
-        alert("La contraseña debe tener al menos 6 caracteres.");
-        return false;
-    }
-    if (pass1 !== pass2) {
-        alert("Las contraseñas no coinciden.");
-        return false;
-    }
-    return true;
-}
-</script>
-
-</body>
+            // Al cargar la página, mostramos el formulario de login por defecto
+            window.onload = function() {
+                mostrarLogin();
+            }
+        </script>
+    </body>
 </html>

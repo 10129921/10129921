@@ -1,63 +1,23 @@
-
-.registro {
-    padding: 0;
-    margin: 0;
-    box-sizing:border-box;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
-}
-
-.form-group {
-    background-color: rgb(158, 240, 86);
+#img {
     display: flex;
-    align-items:center;
-    justify-content:flex-start;
-    gap: 100px; /* Espacio entre la imagen y el formulario */
-}
-
-.form {
-    text-align:left;
-    width: 250px;
-    padding: -2rem;
-    background-color: rgb(224, 245, 206);
-}
-
-.img {
-    width: 180px;
-    height: auto;
-    position: absolute;
-    right: 2%;
-    top: 0
-}
-
-
-/* Recuadros */
-.form input {
-    display:block;
     width: 100%;
-    padding: .5rem;
-    margin-bottom: 10px;
-    outline: none;
-    border: 1.5px solid black;
+    height: 100vh; /* Ocupa todo el alto de la pantalla */
 }
 
-/* Boton registro*/
-.form input[type="submit"] {
+.images {
+    display: flex;
     width: 100%;
-    padding: .7rem;
-    cursor:pointer;
-    background-color: #66e36b;
-    border: none;
-    color: rgb(0, 0, 0);
+    height: 100%;
 }
 
-/* Ya tienes cuenta? */
-.form a {
-    display:block;
-    margin:auto;
-    margin-bottom: .8rem;
-    width: 250px;
-    font-size: -1rem;
-    color: rgb(175, 108, 72);
-    cursor: pointer;
-    text-decoration: underline;
+.ima1 {
+    object-fit: cover;  /* Ajusta la imagen para cubrir el área sin distorsionar */
+    width: 50%;         /* La imagen de la izquierda ocupará la mitad del contenedor */
+    height: 100%;
+}
+
+.ima3 {
+    object-fit: cover;  /* Mantiene el aspecto y cubre todo el contenedor */
+    width: 50%;         /* La imagen de la derecha ocupará la otra mitad */
+    height: 100%;
 }
